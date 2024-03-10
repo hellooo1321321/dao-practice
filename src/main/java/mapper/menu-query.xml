@@ -40,4 +40,10 @@
 
     </entry>
 
+    <entry key="readEmployee">
+        SELECT *
+        FROM employee
+        WHERE EMP_ID = ?
+    </entry>
+
 </properties>
