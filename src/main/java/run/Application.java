@@ -1,6 +1,7 @@
 package run;
 
 import model.dao.CreateDAO;
+
 import model.dto.ReadDTO;
 
 import java.sql.Connection;
@@ -9,11 +10,25 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Properties;
+import java.util.Scanner;
+
+import static common.JDBCTemplate.close;
+
 import static common.JDBCTemplate.getConnection;
 
 public class Application {
 
     public static void main(String[] args) {
+
+        Connection con = getConnection();
 
 
         // main 스위치문 employee == xml ==> 쿼리 , config,common
@@ -24,6 +39,7 @@ public class Application {
         // 2. read     emo_id  입력하세요 : 전체가읽     //
         // 3. update   emp_id , 이름 , 민증번호, 급여       //
         // 4. delete   emp_id 선택 전체 행 삭제            //
+
 
         // 신규 사원 등록
 
@@ -101,6 +117,11 @@ public class Application {
         ReadDTO newEmployee = new ReadDTO(empId, empName, empNo, email, phone, deptCode, jobCode, salLevel, salary, bonus, managerId, sqlDate1, sqlDate2, entYN);
 
         int result = registDAO.createNewEmployee(con, newEmployee);
+
+
+        CreateDAO app1 = new CreateDAO();
+        int result = app1.DELETE(con);
+
 
     }
 
