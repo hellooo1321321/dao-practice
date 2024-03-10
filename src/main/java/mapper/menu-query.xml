@@ -2,11 +2,11 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-    <comment/>
-    <entry key="createEmployee">
-        INSERT INTO EMPLOYEE
+<!--    <comment/>-->
+<!--    <entry key="createEmployee">-->
+<!--        INSERT INTO EMPLOYEE-->
 
-    <entry key="employee">
+    <entry key="createEmployee">
         INSERT INTO employee
 
         (EMP_ID, EMP_NAME, EMP_NO, EMAIL, PHONE, DEPT_CODE, JOB_CODE, SAL_LEVEL, SALARY, BONUS, MANAGER_ID, HIRE_DATE, ENT_DATE, ENT_YN)
@@ -14,7 +14,7 @@
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     </entry>
 
-    <entry key="employee">
+    <entry key="updateEmployee">
         UPDATE EMP_ID
         SET
         EMP_NAME = ?

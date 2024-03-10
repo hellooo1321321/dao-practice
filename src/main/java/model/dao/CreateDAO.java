@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.dto.ReadDTO;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -30,7 +31,8 @@ public class CreateDAO {
         }
 
     }
-    public int createNewEmployee(Connection con, ReadDTO newEmployee) {
+
+    public void createNewEmployee(Connection con, ReadDTO newEmployee) {
 
         PreparedStatement pstmt = null;
 
@@ -62,24 +64,22 @@ public class CreateDAO {
             throw new RuntimeException(e);
         } finally {
             close(pstmt);
+            close(con);
         }
+        if(result > 0) {
+            System.out.println("정상 출력");
+        } else System.out.println("ERR !");
 
 
-    public CreateDAO(){
-        try {
-            prop.loadFromXML(new FileInputStream("src/main/java/mapper/menu-query.xml"));
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
     }
 
-    public int DELETE (Connection con){
+
+
+    public int DELETE(Connection con) {
 
         PreparedStatement pstmt = null;
         int result = 0;
         try {
-
-
             String query = prop.getProperty("deleteEMP_ID");
 
             Scanner sc = new Scanner(System.in);
@@ -92,11 +92,9 @@ public class CreateDAO {
             result = pstmt.executeUpdate();
 
 
-        }  catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-
-
             close(pstmt);
         }
 
@@ -112,3 +110,4 @@ public class CreateDAO {
     }
 
 }
+

@@ -11,24 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.Properties;
-import java.util.Scanner;
-
-import static common.JDBCTemplate.close;
-
 import static common.JDBCTemplate.getConnection;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        Connection con = getConnection();
 
 
         // main 스위치문 employee == xml ==> 쿼리 , config,common
@@ -116,11 +104,12 @@ public class Application {
 
         ReadDTO newEmployee = new ReadDTO(empId, empName, empNo, email, phone, deptCode, jobCode, salLevel, salary, bonus, managerId, sqlDate1, sqlDate2, entYN);
 
-        int result = registDAO.createNewEmployee(con, newEmployee);
+//        int result = registDAO.createNewEmployee(con, newEmployee);
 
 
-        CreateDAO app1 = new CreateDAO();
-        int result = app1.DELETE(con);
+//        CreateDAO app1 = new CreateDAO();
+
+//        result = app1.DELETE(con);
 
 
     }
