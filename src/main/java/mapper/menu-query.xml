@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone = "no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+    <entry key="updateEmployee">
+        UPDATE EMPLOYEE
+        SET
+        EMP_NAME = ?,
+        EMP_NO = ?,
+        SALARY = ?
+        WHERE EMP_ID = ?
+    </entry>
 
 <!--    <comment/>-->
 <!--    <entry key="createEmployee">-->
