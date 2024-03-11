@@ -7,7 +7,8 @@
         EMP_NAME = ?,
         EMP_NO = ?,
         SALARY = ?
-        WHERE EMP_ID = ?
+        WHERE
+        EMP_ID = ?
     </entry>
 
 <!--    <comment/>-->
@@ -17,7 +18,7 @@
     <entry key="createEmployee">
         INSERT INTO employee
         (EMP_ID, EMP_NAME, EMP_NO, EMAIL, PHONE, DEPT_CODE, JOB_CODE, SAL_LEVEL, SALARY, BONUS, MANAGER_ID, HIRE_DATE, ENT_DATE, ENT_YN)
-        VALUES
+        VALUE
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     </entry>
 

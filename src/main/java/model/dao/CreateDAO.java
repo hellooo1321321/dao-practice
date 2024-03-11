@@ -22,7 +22,7 @@ public class CreateDAO {
     private static Properties prop = new Properties();
 
 
-    public static void CreateDAO1() {
+    public CreateDAO() {
 
         try {
             prop.loadFromXML((new FileInputStream("src/main/java/mapper/menu-query.xml")));
