@@ -42,30 +42,30 @@ public class READDAO {
         System.out.print("ID 값을 입력하세요 : ");
         int id = sc.nextInt();
         try {
-            ptsmt = con.prepareStatement(query);
-            ptsmt.setInt(1, id);
+                    ptsmt = con.prepareStatement(query);
+                    ptsmt.setInt(1, id);
 
-            rset = ptsmt.executeQuery();
-            empList = new ArrayList<>();
-            while (rset.next()) {
-                row = new ReadDTO();
-                row.setEmpId(rset.getString("EMP_ID"));
-                row.setEmpName(rset.getString("EMP_NAME"));
-                row.setEmpNo(rset.getString("EMP_NO"));
-                row.setEmail(rset.getString("EMAIL"));
-                row.setPhone(rset.getString("PHONE"));
-                row.setDeptCode(rset.getString("DEPT_CODE"));
-                row.setJobCode(rset.getString("JOB_CODE"));
-                row.setSalLevel(rset.getString("SAL_LEVEL"));
-                row.setSalary(rset.getInt("SALARY"));
-                row.setBonus(rset.getDouble("BONUS"));
-                row.setManagerId(rset.getString("MANAGER_ID"));
-                row.setHireDate(rset.getDate("HIRE_DATE"));
-                row.setEntDate(rset.getDate("ENT_DATE"));
-                row.setEntYN(rset.getString("ENT_YN"));
+                    rset = ptsmt.executeQuery();
+                    empList = new ArrayList<>();
+                    while (rset.next()) {
+                        row = new ReadDTO();
+                        row.setEmpId(rset.getString("EMP_ID"));
+                        row.setEmpName(rset.getString("EMP_NAME"));
+                        row.setEmpNo(rset.getString("EMP_NO"));
+                        row.setEmail(rset.getString("EMAIL"));
+                        row.setPhone(rset.getString("PHONE"));
+                        row.setDeptCode(rset.getString("DEPT_CODE"));
+                        row.setJobCode(rset.getString("JOB_CODE"));
+                        row.setSalLevel(rset.getString("SAL_LEVEL"));
+                        row.setSalary(rset.getInt("SALARY"));
+                        row.setBonus(rset.getDouble("BONUS"));
+                        row.setManagerId(rset.getString("MANAGER_ID"));
+                        row.setHireDate(rset.getDate("HIRE_DATE"));
+                        row.setEntDate(rset.getDate("ENT_DATE"));
+                        row.setEntYN(rset.getString("ENT_YN"));
 
-                empList.add(row);
-            }
+                        empList.add(row);
+                    }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {

@@ -16,7 +16,6 @@
 
     <entry key="createEmployee">
         INSERT INTO employee
-
         (EMP_ID, EMP_NAME, EMP_NO, EMAIL, PHONE, DEPT_CODE, JOB_CODE, SAL_LEVEL, SALARY, BONUS, MANAGER_ID, HIRE_DATE, ENT_DATE, ENT_YN)
         VALUES
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -42,8 +41,7 @@
         employee = ?
     </entry>
     <entry key="deleteEMP">
-        DELETE
-        FROM employee
+        DELETE FROM employee
         WHERE EMP_ID = ?
 
     </entry>

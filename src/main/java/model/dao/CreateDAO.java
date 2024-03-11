@@ -19,10 +19,10 @@ import static common.JDBCTemplate.close;
 
 public class CreateDAO {
 
-    private Properties prop = new Properties();
+    private static Properties prop = new Properties();
 
 
-    public CreateDAO() {
+    public static void CreateDAO1() {
 
         try {
             prop.loadFromXML((new FileInputStream("src/main/java/mapper/menu-query.xml")));
@@ -32,8 +32,9 @@ public class CreateDAO {
 
     }
 
-    public void createNewEmployee(Connection con, ReadDTO newEmployee) {
+    public void createNewEmployee(Connection con,ReadDTO newEmployee) {
 
+//        ReadDTO newEmployee = new ReadDTO();
         PreparedStatement pstmt = null;
 
         int result = 0;
@@ -41,6 +42,7 @@ public class CreateDAO {
         String query = prop.getProperty("createEmployee");
 
         try {
+
             pstmt = con.prepareStatement(query);
 
             pstmt.setString(1, newEmployee.getEmpId());
